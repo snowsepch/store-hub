@@ -3,45 +3,44 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width,initial-scale=1.0">
-<title id="pg-title">門市工具入口</title>
+<title>Apple Shop 數位工具 · 公測版</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
 <style>
 :root{
-  --bg:#fef6e4;
-  --white:#fffffe;
-  --navy:#001858;
-  --navy2:#001040;
-  --ink:#001858;
-  --ink2:#7a6a50;
-  --accent:#f582ae;
-  --accent2:#e8609a;
-  --tint:#8bd3dd;
-  --hover:#fff0f6;
-  --line:#e8d9c0;
+  --bg:#f5f0ec;
+  --white:#ffffff;
+  --deep:#181818;
+  --deep2:#000000;
+  --ink:#181818;
+  --ink2:#888;
+  --accent:#f06030;
+  --accent2:#d94f1e;
+  --hover:#fff8f4;
+  --line:#e8e0d8;
 }
 *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
 body{font-family:'Noto Sans TC',-apple-system,sans-serif;background:var(--bg);color:var(--ink);min-height:100vh;}
 
-/* ── Masthead (白底) ── */
+/* ── Masthead ── */
 .masthead{
-  background:var(--white);border-bottom:3px solid var(--accent);
+  background:var(--deep);border-bottom:3px solid var(--accent);
   display:flex;align-items:center;justify-content:space-between;
   padding:0 52px;height:56px;
 }
 .m-brand{display:flex;align-items:center;gap:14px;}
-.m-logo{font-size:18px;color:var(--navy);opacity:.55;}
-.m-title{font-family:'Bebas Neue',sans-serif;font-size:19px;letter-spacing:.22em;color:var(--navy);}
-.m-sep{width:1px;height:15px;background:var(--line);}
-.m-store{font-size:13px;font-weight:900;color:var(--navy);}
+.m-logo{font-size:18px;color:#fff;opacity:.7;}
+.m-title{font-family:'Bebas Neue',sans-serif;font-size:19px;letter-spacing:.22em;color:#fff;}
+.m-sep{width:1px;height:15px;background:rgba(255,255,255,.2);}
+.m-store{font-size:12px;font-weight:700;color:rgba(255,255,255,.65);letter-spacing:.03em;}
 .m-back{
   display:inline-flex;align-items:center;gap:6px;
   font-size:11px;font-weight:700;letter-spacing:.06em;
-  color:var(--ink2);text-decoration:none;
-  border:1px solid var(--line);padding:5px 14px;
+  color:rgba(255,255,255,.5);text-decoration:none;
+  border:1px solid rgba(255,255,255,.2);padding:5px 14px;
   transition:all .12s;
 }
-.m-back:hover{color:var(--accent);border-color:var(--accent);}
+.m-back:hover{color:#fff;border-color:rgba(255,255,255,.6);}
 .m-back svg{width:9px;height:9px;stroke:currentColor;fill:none;stroke-width:2.5;
   stroke-linecap:round;stroke-linejoin:round;}
 
@@ -49,36 +48,53 @@ body{font-family:'Noto Sans TC',-apple-system,sans-serif;background:var(--bg);co
 .hero{
   background:var(--white);border-bottom:1px solid var(--line);
   padding:44px 52px 38px;
-  display:grid;grid-template-columns:1fr auto;gap:0 48px;align-items:end;
 }
-.hero-kicker{
-  font-family:'Bebas Neue',sans-serif;font-size:11px;letter-spacing:.3em;color:var(--ink2);
-  margin-bottom:12px;display:flex;align-items:center;gap:10px;
+.hero-inner{display:grid;grid-template-columns:1fr auto;gap:0 48px;align-items:end;}
+.hero-store-tag{
+  display:inline-flex;align-items:center;gap:8px;
+  font-family:'Bebas Neue',sans-serif;font-size:11px;letter-spacing:.28em;
+  color:var(--ink2);margin-bottom:14px;
 }
-.hero-kicker::after{content:'';display:block;width:36px;height:1px;background:var(--accent);}
-.hero-store{font-weight:900;font-size:56px;line-height:.9;color:var(--navy);letter-spacing:-.02em;}
-.hero-sub{
-  margin-top:18px;font-size:12.5px;color:var(--ink2);line-height:2;
-  border-left:2px solid var(--line);padding-left:14px;letter-spacing:.03em;
+.hero-store-tag::before{content:'';display:block;width:28px;height:1px;background:var(--accent);}
+.hero-store-name{
+  font-size:13px;font-weight:700;color:var(--accent);letter-spacing:.04em;
 }
-.hero-badge{
+.hero-title{
+  font-weight:900;font-size:68px;line-height:.9;
+  color:var(--deep);letter-spacing:-.025em;margin-bottom:14px;
+}
+.hero-badges{display:flex;align-items:center;gap:10px;margin-top:18px;}
+.badge-beta{
+  font-size:11px;font-weight:700;letter-spacing:.1em;
+  background:var(--accent);color:#fff;padding:5px 14px;
+}
+.badge-tools{
+  font-family:'Bebas Neue',sans-serif;font-size:11px;letter-spacing:.14em;
+  color:var(--ink2);border:1px solid var(--line);padding:5px 12px;
+}
+.hero-desc{
+  margin-top:16px;font-size:12.5px;color:var(--ink2);line-height:2;
+  border-left:3px solid var(--accent);padding-left:16px;letter-spacing:.03em;
+}
+.hero-stamp{
   display:flex;flex-direction:column;align-items:center;gap:2px;
-  padding:18px 24px;border:1.5px solid var(--navy);background:var(--bg);
-  position:relative;flex-shrink:0;
+  padding:18px 24px;border:1.5px solid var(--deep);background:var(--bg);
+  position:relative;flex-shrink:0;align-self:start;
 }
-.hero-badge::before{content:'';position:absolute;inset:5px;border:1px dashed rgba(0,24,88,.14);}
-.hb-num{font-family:'Bebas Neue',sans-serif;font-size:56px;line-height:1;color:var(--navy);}
-.hb-unit{font-size:9px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--ink2);}
+.hero-stamp::before{content:'';position:absolute;inset:5px;border:1px dashed rgba(0,0,0,.1);}
+.hs-num{font-family:'Bebas Neue',sans-serif;font-size:56px;line-height:1;color:var(--deep);}
+.hs-unit{font-size:9px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--ink2);}
+.hs-accent{font-size:9px;letter-spacing:.1em;color:var(--accent);margin-top:3px;}
 
 /* ── Shell ── */
 .shell{max-width:1100px;margin:0 auto;padding:0 52px 72px;}
 
 /* ── Section ── */
-.sec{display:flex;align-items:center;margin:44px 0 0;border-top:2px solid var(--navy);padding-top:12px;
+.sec{display:flex;align-items:center;margin:44px 0 0;border-top:3px solid var(--deep);padding-top:13px;
   animation:fadeUp .4s .05s ease both;}
 .sec-label{font-family:'Bebas Neue',sans-serif;font-size:11px;letter-spacing:.25em;
   color:#fff;background:var(--accent);padding:5px 16px;margin-right:14px;}
-.sec-title{font-size:15px;font-weight:900;color:var(--navy);}
+.sec-title{font-size:15px;font-weight:900;color:var(--deep);}
 .sec-line{flex:1;height:1px;background:var(--line);margin:0 14px;}
 .sec-count{font-family:'Bebas Neue',sans-serif;font-size:11px;letter-spacing:.12em;color:var(--ink2);}
 
@@ -86,13 +102,11 @@ body{font-family:'Noto Sans TC',-apple-system,sans-serif;background:var(--bg);co
 .bento{
   margin-top:18px;display:grid;
   grid-template-columns:repeat(3,1fr);
-  gap:1px;background:var(--line);border:1px solid var(--line);
+  gap:1px;background:var(--deep);border:1px solid var(--deep);
   animation:fadeUp .4s .1s ease both;
 }
-/* 海報(wide) | 到貨 */
 .t-poster {grid-column:1/3;grid-row:1;}
 .t-arrival{grid-column:3;grid-row:1;}
-/* 庫存 | 陳列建議 | 陳列分析 */
 .t-invent {grid-column:1;grid-row:2;}
 .t-access {grid-column:2;grid-row:2;}
 .t-analysis{grid-column:3;grid-row:2;}
@@ -102,15 +116,13 @@ body{font-family:'Noto Sans TC',-apple-system,sans-serif;background:var(--bg);co
   display:flex;flex-direction:column;transition:background .12s;
 }
 .tc:hover{background:var(--hover);}
-
-/* 海報卡片：奶油底 + 左粗邊框（粉玫瑰） */
 .tc-feat{background:var(--bg);border-left:4px solid var(--accent);}
 .tc-feat:hover{background:var(--hover);}
 
 .tc-head{display:flex;align-items:flex-start;justify-content:space-between;gap:8px;}
 .tc-cat{font-size:9px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;
   color:var(--ink2);margin-bottom:7px;}
-.tc-name{font-size:20px;font-weight:900;line-height:1.18;color:var(--navy);}
+.tc-name{font-size:20px;font-weight:900;line-height:1.18;color:var(--deep);}
 .tc-name-lg{font-size:24px;}
 .tc-num{
   font-family:'Bebas Neue',sans-serif;font-size:48px;line-height:1;
@@ -131,18 +143,18 @@ body{font-family:'Noto Sans TC',-apple-system,sans-serif;background:var(--bg);co
   display:inline-flex;align-items:center;gap:7px;
   font-size:11.5px;font-weight:700;letter-spacing:.05em;
   padding:9px 20px;text-decoration:none;
-  background:var(--accent);color:#fff;transition:background .12s;
+  background:var(--deep);color:#fff;transition:background .12s;
 }
 .btn svg{width:10px;height:10px;stroke:currentColor;fill:none;stroke-width:2.5;
   stroke-linecap:round;stroke-linejoin:round;transition:transform .12s;}
-.btn:hover{background:var(--accent2);}
+.btn:hover{background:var(--accent);}
 .btn:hover svg{transform:translateX(3px);}
 .tc-ver{margin-left:auto;font-size:9px;color:var(--ink2);
   letter-spacing:.07em;border:1px solid var(--line);padding:3px 10px;}
 
 /* ── Footer ── */
 .footer{
-  background:var(--navy);
+  background:var(--deep);border-top:3px solid var(--accent);
   display:flex;justify-content:space-between;align-items:center;padding:14px 52px;
 }
 .footer-l{font-size:11px;color:rgba(255,255,255,.35);letter-spacing:.04em;}
@@ -155,21 +167,21 @@ body{font-family:'Noto Sans TC',-apple-system,sans-serif;background:var(--bg);co
 @media(max-width:780px){
   .masthead{padding:0 18px;height:48px;}
   .m-sep{display:none;}
-  .hero{padding:28px 20px 24px;grid-template-columns:1fr;gap:16px;}
-  .hero-store{font-size:38px;}
-  .hero-badge{flex-direction:row;padding:10px 16px;gap:10px;}
-  .hb-num{font-size:40px;}
+  .hero{padding:26px 20px 24px;}
+  .hero-inner{grid-template-columns:1fr;gap:16px;}
+  .hero-title{font-size:44px;}
+  .hero-stamp{display:none;}
   .shell{padding:0 18px 48px;}
   .bento{grid-template-columns:1fr;}
   .t-poster,.t-arrival,.t-invent,.t-access,.t-analysis{grid-column:1;grid-row:auto;}
-  .tc-feat{border-left:none;border-top:4px solid var(--navy);}
+  .tc-feat{border-left:none;border-top:4px solid var(--accent);}
   .tc-name-lg{font-size:20px;}
   .footer{padding:12px 18px;flex-direction:column;gap:4px;text-align:center;}
 }
 @media(max-width:1024px) and (min-width:781px){
   .masthead{padding:0 28px;}
-  .hero{padding:36px 28px 30px;}
-  .hero-store{font-size:44px;}
+  .hero{padding:34px 28px 30px;}
+  .hero-title{font-size:52px;}
   .shell{padding:0 28px 60px;}
   .footer{padding:14px 28px;}
 }
@@ -191,17 +203,26 @@ body{font-family:'Noto Sans TC',-apple-system,sans-serif;background:var(--bg);co
 </div>
 
 <div class="hero">
-  <div class="hero-left">
-    <div class="hero-kicker">STORE HUB · PILOT 2026 · 工具入口</div>
-    <div class="hero-store" id="hero-store">門市</div>
-    <div class="hero-sub">
-      5 大數位工具 · 點按即可開啟<br>
-      所有工具皆為雲端版本，不需安裝
+  <div class="hero-inner">
+    <div class="hero-left">
+      <div class="hero-store-tag">
+        <span id="hero-store">門市</span>
+      </div>
+      <div class="hero-title">Apple Shop<br>數位工具</div>
+      <div class="hero-badges">
+        <div class="badge-beta">公測版</div>
+        <div class="badge-tools">5 TOOLS</div>
+      </div>
+      <div class="hero-desc">
+        點按工具卡片即可開啟 · 所有工具皆為雲端版本<br>
+        不需安裝 · 建議使用桌機或平板操作
+      </div>
     </div>
-  </div>
-  <div class="hero-badge">
-    <div class="hb-num">5</div>
-    <div class="hb-unit">Tools</div>
+    <div class="hero-stamp">
+      <div class="hs-num">5</div>
+      <div class="hs-unit">Tools</div>
+      <div class="hs-accent">PILOT</div>
+    </div>
   </div>
 </div>
 
@@ -215,7 +236,7 @@ body{font-family:'Noto Sans TC',-apple-system,sans-serif;background:var(--bg);co
 
   <div class="bento">
 
-    <!-- 01 會員海報（Featured） -->
+    <!-- 01 會員海報 -->
     <div class="tc tc-feat t-poster">
       <div class="tc-head">
         <div>
@@ -313,11 +334,11 @@ body{font-family:'Noto Sans TC',-apple-system,sans-serif;background:var(--bg);co
       </div>
     </div>
 
-  </div><!-- /bento -->
-</div><!-- /shell -->
+  </div>
+</div>
 
 <div class="footer">
-  <div class="footer-l">STORE HUB · 燦坤 Apple Authorized Reseller · 工具入口系統 · 試行版</div>
+  <div class="footer-l">Apple Shop 數位工具 · 公測版 · 燦坤 Apple Authorized Reseller</div>
   <div class="footer-r">Built with Claude · 2026</div>
 </div>
 
@@ -325,7 +346,6 @@ body{font-family:'Noto Sans TC',-apple-system,sans-serif;background:var(--bg);co
 const store = decodeURIComponent(new URLSearchParams(window.location.search).get('store') || '門市');
 document.getElementById('mast-store').textContent = store;
 document.getElementById('hero-store').textContent = store;
-document.getElementById('pg-title').textContent = store + ' — 工具入口';
 </script>
 
 </body>
