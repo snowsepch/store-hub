@@ -305,7 +305,7 @@ body{font-family:'Noto Sans TC',-apple-system,sans-serif;background:var(--bg);co
       </div>
       <div class="tc-desc">上傳操盤 PDF → 自動抓取價格與折扣 → 產出 5 頁彩色海報 → 即時編輯 → 一鍵列印。涵蓋 iPhone · iPad · Mac · Watch · AirPods 全品類。</div>
       <div class="tc-foot">
-        <a class="btn" href="https://snowsepch.github.io/member-poster/" target="_blank">
+        <a class="btn" data-tool-link="https://snowsepch.github.io/member-poster/" target="_blank">
           開啟工具<svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
         </a>
         <span class="tc-ver">MASTER 15_23</span>
@@ -322,7 +322,7 @@ body{font-family:'Noto Sans TC',-apple-system,sans-serif;background:var(--bg);co
       </div>
       <div class="tc-desc">上傳 Excel → 緊急 / 一般 / 已通知三色徽章，快速搜尋待通知訂單。Apple 正廠 ＋ 副廠分頁顯示。</div>
       <div class="tc-foot">
-        <a class="btn" href="https://snowsepch.github.io/arrival-dashboard/" target="_blank">
+        <a class="btn" data-tool-link="https://snowsepch.github.io/arrival-dashboard/" target="_blank">
           開啟工具<svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
         </a>
       </div>
@@ -338,7 +338,7 @@ body{font-family:'Noto Sans TC',-apple-system,sans-serif;background:var(--bg);co
       </div>
       <div class="tc-desc">上傳 Excel → 庫存水位分析 → 匯出 .ics 補貨行事曆 ＋ Excel 報表。🔴&lt;14天 · 🟠14–30天。</div>
       <div class="tc-foot">
-        <a class="btn" href="https://snowsepch.github.io/inventory-system/" target="_blank">
+        <a class="btn" data-tool-link="https://snowsepch.github.io/inventory-system/" target="_blank">
           開啟工具<svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
         </a>
       </div>
@@ -354,7 +354,7 @@ body{font-family:'Noto Sans TC',-apple-system,sans-serif;background:var(--bg);co
       </div>
       <div class="tc-desc">副廠配件銷售 TOP 15 × 花車陳列位置建議。每季更新，黃金層優先擺放高銷量品項。</div>
       <div class="tc-foot">
-        <a class="btn" href="https://snowsepch.github.io/accessory-display/" target="_blank">
+        <a class="btn" data-tool-link="https://snowsepch.github.io/accessory-display/" target="_blank">
           開啟工具<svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
         </a>
       </div>
@@ -370,7 +370,7 @@ body{font-family:'Noto Sans TC',-apple-system,sans-serif;background:var(--bg);co
       </div>
       <div class="tc-desc">上傳 POS Excel → 自動排名 TOP 15 → 貨架示意圖 ＋ 多期比較 ＋ 導購話術框架。</div>
       <div class="tc-foot">
-        <a class="btn" href="https://snowsepch.github.io/accessory-analysis/" target="_blank">
+        <a class="btn" data-tool-link="https://snowsepch.github.io/accessory-analysis/" target="_blank">
           開啟工具<svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
         </a>
         <span class="tc-ver">Excel 上傳版</span>
@@ -453,6 +453,12 @@ const store = decodeURIComponent(new URLSearchParams(window.location.search).get
 document.getElementById('mast-store').textContent = store;
 document.getElementById('hero-store').textContent = store;
 document.getElementById('rf-store-val').textContent = store;
+
+/* ── 工具連結帶入 store 參數 ── */
+const sp = encodeURIComponent(store);
+document.querySelectorAll('a[data-tool-link]').forEach(a => {
+  a.href = a.dataset.toolLink + '?store=' + sp;
+});
 
 /* ── radio 視覺回饋 ── */
 document.querySelectorAll('.rf-opt input[type=radio]').forEach(r => {
