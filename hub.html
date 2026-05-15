@@ -56,22 +56,14 @@ body{font-family:'Noto Sans TC',-apple-system,sans-serif;background:var(--bg);co
   color:var(--ink2);margin-bottom:14px;
 }
 .hero-store-tag::before{content:'';display:block;width:28px;height:1px;background:var(--accent);}
-.hero-store-name{
-  font-size:13px;font-weight:700;color:var(--accent);letter-spacing:.04em;
-}
+.hero-store-name{font-size:13px;font-weight:700;color:var(--accent);letter-spacing:.04em;}
 .hero-title{
   font-weight:900;font-size:68px;line-height:.9;
   color:var(--deep);letter-spacing:-.025em;margin-bottom:14px;
 }
 .hero-badges{display:flex;align-items:center;gap:10px;margin-top:18px;}
-.badge-beta{
-  font-size:11px;font-weight:700;letter-spacing:.1em;
-  background:var(--accent);color:#fff;padding:5px 14px;
-}
-.badge-tools{
-  font-family:'Bebas Neue',sans-serif;font-size:11px;letter-spacing:.14em;
-  color:var(--ink2);border:1px solid var(--line);padding:5px 12px;
-}
+.badge-beta{font-size:11px;font-weight:700;letter-spacing:.1em;background:var(--accent);color:#fff;padding:5px 14px;}
+.badge-tools{font-family:'Bebas Neue',sans-serif;font-size:11px;letter-spacing:.14em;color:var(--ink2);border:1px solid var(--line);padding:5px 12px;}
 .hero-desc{
   margin-top:16px;font-size:12.5px;color:var(--ink2);line-height:2;
   border-left:3px solid var(--accent);padding-left:16px;letter-spacing:.03em;
@@ -87,7 +79,7 @@ body{font-family:'Noto Sans TC',-apple-system,sans-serif;background:var(--bg);co
 .hs-accent{font-size:9px;letter-spacing:.1em;color:var(--accent);margin-top:3px;}
 
 /* ── Shell ── */
-.shell{max-width:1100px;margin:0 auto;padding:0 52px 72px;}
+.shell{max-width:1100px;margin:0 auto;padding:0 52px 60px;}
 
 /* ── Section ── */
 .sec{display:flex;align-items:center;margin:44px 0 0;border-top:3px solid var(--deep);padding-top:13px;
@@ -111,33 +103,22 @@ body{font-family:'Noto Sans TC',-apple-system,sans-serif;background:var(--bg);co
 .t-access {grid-column:2;grid-row:2;}
 .t-analysis{grid-column:3;grid-row:2;}
 
-.tc{
-  background:var(--white);padding:26px 28px 22px;
-  display:flex;flex-direction:column;transition:background .12s;
-}
+.tc{background:var(--white);padding:26px 28px 22px;display:flex;flex-direction:column;transition:background .12s;}
 .tc:hover{background:var(--hover);}
 .tc-feat{background:var(--bg);border-left:4px solid var(--accent);}
 .tc-feat:hover{background:var(--hover);}
 
 .tc-head{display:flex;align-items:flex-start;justify-content:space-between;gap:8px;}
-.tc-cat{font-size:9px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;
-  color:var(--ink2);margin-bottom:7px;}
+.tc-cat{font-size:9px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--ink2);margin-bottom:7px;}
 .tc-name{font-size:20px;font-weight:900;line-height:1.18;color:var(--deep);}
 .tc-name-lg{font-size:24px;}
-.tc-num{
-  font-family:'Bebas Neue',sans-serif;font-size:48px;line-height:1;
-  color:var(--accent);flex-shrink:0;margin-top:-2px;opacity:.35;
-}
+.tc-num{font-family:'Bebas Neue',sans-serif;font-size:48px;line-height:1;color:var(--accent);opacity:.3;flex-shrink:0;margin-top:-2px;}
 .tc-num-lg{font-size:60px;}
 
 .tc-tags{display:flex;flex-wrap:wrap;gap:5px;margin:12px 0 0;}
-.tc-tag{font-size:9px;font-weight:700;letter-spacing:.06em;
-  padding:2px 8px;border:1px solid var(--line);color:var(--ink2);}
+.tc-tag{font-size:9px;font-weight:700;letter-spacing:.06em;padding:2px 8px;border:1px solid var(--line);color:var(--ink2);}
 
-.tc-desc{
-  font-size:12px;color:var(--ink2);line-height:1.8;
-  margin-top:12px;padding-top:12px;border-top:1px solid var(--line);
-}
+.tc-desc{font-size:12px;color:var(--ink2);line-height:1.8;margin-top:12px;padding-top:12px;border-top:1px solid var(--line);}
 .tc-foot{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:16px;}
 .btn{
   display:inline-flex;align-items:center;gap:7px;
@@ -145,17 +126,85 @@ body{font-family:'Noto Sans TC',-apple-system,sans-serif;background:var(--bg);co
   padding:9px 20px;text-decoration:none;
   background:var(--deep);color:#fff;transition:background .12s;
 }
-.btn svg{width:10px;height:10px;stroke:currentColor;fill:none;stroke-width:2.5;
-  stroke-linecap:round;stroke-linejoin:round;transition:transform .12s;}
+.btn svg{width:10px;height:10px;stroke:currentColor;fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;transition:transform .12s;}
 .btn:hover{background:var(--accent);}
 .btn:hover svg{transform:translateX(3px);}
-.tc-ver{margin-left:auto;font-size:9px;color:var(--ink2);
-  letter-spacing:.07em;border:1px solid var(--line);padding:3px 10px;}
+.tc-ver{margin-left:auto;font-size:9px;color:var(--ink2);letter-spacing:.07em;border:1px solid var(--line);padding:3px 10px;}
+
+/* ── 問題回報區塊 ── */
+.report-sec{
+  margin-top:44px;border-top:3px solid var(--deep);padding-top:13px;
+  animation:fadeUp .4s .15s ease both;
+}
+.report-sec-head{display:flex;align-items:center;gap:0;margin-bottom:18px;}
+.report-sec-label{font-family:'Bebas Neue',sans-serif;font-size:11px;letter-spacing:.25em;color:#fff;background:var(--deep);padding:5px 16px;margin-right:14px;}
+.report-sec-title{font-size:15px;font-weight:900;color:var(--deep);}
+.report-sec-line{flex:1;height:1px;background:var(--line);margin:0 14px;}
+
+.report-card{
+  background:var(--white);border:1px solid var(--line);
+  border-top:4px solid var(--accent);
+  padding:28px 32px 32px;
+  display:grid;grid-template-columns:1fr 1fr;gap:20px 40px;
+}
+.rf-field{display:flex;flex-direction:column;gap:8px;}
+.rf-field.full{grid-column:1/3;}
+.rf-label{font-size:10px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--ink2);}
+.rf-req{color:var(--accent);}
+.rf-store-val{font-size:13px;font-weight:700;color:var(--deep);padding:8px 0;border-bottom:1px solid var(--line);}
+.rf-select{
+  width:100%;padding:9px 12px;font-size:13px;font-family:inherit;
+  border:1.5px solid var(--line);background:#fff;color:var(--ink);
+  appearance:none;cursor:pointer;
+}
+.rf-select:focus{outline:none;border-color:var(--accent);}
+
+.rf-options{display:flex;flex-direction:column;gap:7px;}
+.rf-opt{
+  display:flex;align-items:center;gap:10px;font-size:13px;color:var(--ink);
+  cursor:pointer;padding:9px 14px;border:1.5px solid var(--line);
+  transition:all .1s;user-select:none;
+}
+.rf-opt:hover{border-color:var(--accent);background:var(--hover);}
+.rf-opt input{accent-color:var(--accent);cursor:pointer;flex-shrink:0;}
+.rf-opt.checked{border-color:var(--accent);background:var(--hover);}
+.rf-opt.checked span{color:var(--accent);font-weight:700;}
+
+.rf-textarea{
+  width:100%;padding:10px 12px;font-size:13px;font-family:inherit;
+  border:1.5px solid var(--line);resize:vertical;min-height:80px;
+  color:var(--ink);line-height:1.7;
+}
+.rf-textarea:focus{outline:none;border-color:var(--accent);}
+.rf-textarea::placeholder{color:#bbb;}
+
+.rf-submit-row{grid-column:1/3;display:flex;align-items:center;gap:16px;margin-top:4px;}
+.rf-submit{
+  display:inline-flex;align-items:center;gap:8px;
+  font-family:inherit;font-size:13px;font-weight:700;letter-spacing:.06em;
+  padding:11px 32px;background:var(--accent);color:#fff;border:none;cursor:pointer;
+  transition:background .12s;
+}
+.rf-submit:hover{background:var(--accent2);}
+.rf-submit:disabled{background:var(--ink2);cursor:not-allowed;}
+.rf-submit svg{width:11px;height:11px;stroke:#fff;fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;}
+
+.rf-success{
+  display:none;align-items:center;gap:12px;
+  font-size:13px;font-weight:700;color:var(--accent);
+}
+.rf-success-icon{
+  width:28px;height:28px;border:2px solid var(--accent);
+  display:flex;align-items:center;justify-content:center;
+  font-size:14px;color:var(--accent);flex-shrink:0;
+}
+.rf-hint{font-size:11px;color:var(--ink2);line-height:1.7;}
 
 /* ── Footer ── */
 .footer{
   background:var(--deep);border-top:3px solid var(--accent);
   display:flex;justify-content:space-between;align-items:center;padding:14px 52px;
+  margin-top:0;
 }
 .footer-l{font-size:11px;color:rgba(255,255,255,.35);letter-spacing:.04em;}
 .footer-r{font-size:10px;color:rgba(255,255,255,.2);letter-spacing:.07em;}
@@ -176,6 +225,8 @@ body{font-family:'Noto Sans TC',-apple-system,sans-serif;background:var(--bg);co
   .t-poster,.t-arrival,.t-invent,.t-access,.t-analysis{grid-column:1;grid-row:auto;}
   .tc-feat{border-left:none;border-top:4px solid var(--accent);}
   .tc-name-lg{font-size:20px;}
+  .report-card{grid-template-columns:1fr;}
+  .rf-field.full,.rf-submit-row{grid-column:1;}
   .footer{padding:12px 18px;flex-direction:column;gap:4px;text-align:center;}
 }
 @media(max-width:1024px) and (min-width:781px){
@@ -227,6 +278,8 @@ body{font-family:'Noto Sans TC',-apple-system,sans-serif;background:var(--bg);co
 </div>
 
 <div class="shell">
+
+  <!-- 工具入口 -->
   <div class="sec">
     <div class="sec-label">TOOLS</div>
     <div class="sec-title">工具快捷入口</div>
@@ -236,7 +289,6 @@ body{font-family:'Noto Sans TC',-apple-system,sans-serif;background:var(--bg);co
 
   <div class="bento">
 
-    <!-- 01 會員海報 -->
     <div class="tc tc-feat t-poster">
       <div class="tc-head">
         <div>
@@ -254,14 +306,12 @@ body{font-family:'Noto Sans TC',-apple-system,sans-serif;background:var(--bg);co
       <div class="tc-desc">上傳操盤 PDF → 自動抓取價格與折扣 → 產出 5 頁彩色海報 → 即時編輯 → 一鍵列印。涵蓋 iPhone · iPad · Mac · Watch · AirPods 全品類。</div>
       <div class="tc-foot">
         <a class="btn" href="https://snowsepch.github.io/member-poster/" target="_blank">
-          開啟工具
-          <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          開啟工具<svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
         </a>
         <span class="tc-ver">MASTER 15_23</span>
       </div>
     </div>
 
-    <!-- 02 到貨提醒 -->
     <div class="tc t-arrival">
       <div class="tc-head">
         <div>
@@ -273,13 +323,11 @@ body{font-family:'Noto Sans TC',-apple-system,sans-serif;background:var(--bg);co
       <div class="tc-desc">上傳 Excel → 緊急 / 一般 / 已通知三色徽章，快速搜尋待通知訂單。Apple 正廠 ＋ 副廠分頁顯示。</div>
       <div class="tc-foot">
         <a class="btn" href="https://snowsepch.github.io/arrival-dashboard/" target="_blank">
-          開啟工具
-          <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          開啟工具<svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
         </a>
       </div>
     </div>
 
-    <!-- 03 配件庫存管理 -->
     <div class="tc t-invent">
       <div class="tc-head">
         <div>
@@ -291,13 +339,11 @@ body{font-family:'Noto Sans TC',-apple-system,sans-serif;background:var(--bg);co
       <div class="tc-desc">上傳 Excel → 庫存水位分析 → 匯出 .ics 補貨行事曆 ＋ Excel 報表。🔴&lt;14天 · 🟠14–30天。</div>
       <div class="tc-foot">
         <a class="btn" href="https://snowsepch.github.io/inventory-system/" target="_blank">
-          開啟工具
-          <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          開啟工具<svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
         </a>
       </div>
     </div>
 
-    <!-- 04 配件陳列建議 -->
     <div class="tc t-access">
       <div class="tc-head">
         <div>
@@ -309,13 +355,11 @@ body{font-family:'Noto Sans TC',-apple-system,sans-serif;background:var(--bg);co
       <div class="tc-desc">副廠配件銷售 TOP 15 × 花車陳列位置建議。每季更新，黃金層優先擺放高銷量品項。</div>
       <div class="tc-foot">
         <a class="btn" href="https://snowsepch.github.io/accessory-display/" target="_blank">
-          開啟工具
-          <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          開啟工具<svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
         </a>
       </div>
     </div>
 
-    <!-- 05 陳列分析系統 -->
     <div class="tc t-analysis">
       <div class="tc-head">
         <div>
@@ -327,14 +371,72 @@ body{font-family:'Noto Sans TC',-apple-system,sans-serif;background:var(--bg);co
       <div class="tc-desc">上傳 POS Excel → 自動排名 TOP 15 → 貨架示意圖 ＋ 多期比較 ＋ 導購話術框架。</div>
       <div class="tc-foot">
         <a class="btn" href="https://snowsepch.github.io/accessory-analysis/" target="_blank">
-          開啟工具
-          <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+          開啟工具<svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
         </a>
         <span class="tc-ver">Excel 上傳版</span>
       </div>
     </div>
 
   </div>
+
+  <!-- 問題回報 -->
+  <div class="report-sec">
+    <div class="report-sec-head">
+      <div class="report-sec-label">REPORT</div>
+      <div class="report-sec-title">問題回報</div>
+      <div class="report-sec-line"></div>
+    </div>
+
+    <div class="report-card">
+
+      <div class="rf-field">
+        <div class="rf-label">門市</div>
+        <div class="rf-store-val" id="rf-store-val">—</div>
+      </div>
+
+      <div class="rf-field">
+        <div class="rf-label">使用工具 <span class="rf-req">*</span></div>
+        <select id="rf-tool" class="rf-select">
+          <option value="">— 請選擇 —</option>
+          <option value="會員優惠海報系統">會員優惠海報系統</option>
+          <option value="到貨提醒儀表板">到貨提醒儀表板</option>
+          <option value="配件庫存管理系統">配件庫存管理系統</option>
+          <option value="配件陳列建議">配件陳列建議</option>
+          <option value="配件陳列分析系統">配件陳列分析系統</option>
+        </select>
+      </div>
+
+      <div class="rf-field full">
+        <div class="rf-label">問題類別 <span class="rf-req">*</span></div>
+        <div class="rf-options">
+          <label class="rf-opt"><input type="radio" name="rf-cat" value="工具無法開啟"><span>工具無法開啟</span></label>
+          <label class="rf-opt"><input type="radio" name="rf-cat" value="檔案上傳失敗"><span>檔案上傳失敗</span></label>
+          <label class="rf-opt"><input type="radio" name="rf-cat" value="資料顯示異常"><span>資料顯示異常</span></label>
+          <label class="rf-opt"><input type="radio" name="rf-cat" value="列印/匯出異常"><span>列印 / 匯出異常</span></label>
+          <label class="rf-opt"><input type="radio" name="rf-cat" value="其他問題"><span>其他問題</span></label>
+        </div>
+      </div>
+
+      <div class="rf-field full">
+        <div class="rf-label">補充說明（選填）</div>
+        <textarea id="rf-note" class="rf-textarea" placeholder="簡短描述狀況，例如：上傳後畫面空白、列印只有第一頁…" maxlength="200"></textarea>
+      </div>
+
+      <div class="rf-submit-row">
+        <button id="rf-btn" class="rf-submit" onclick="submitReport()">
+          送出回報
+          <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </button>
+        <div id="rf-success" class="rf-success">
+          <div class="rf-success-icon">✓</div>
+          <div>已送出，感謝回報！</div>
+        </div>
+        <div class="rf-hint">資料僅供內部改善工具使用</div>
+      </div>
+
+    </div>
+  </div>
+
 </div>
 
 <div class="footer">
@@ -343,9 +445,70 @@ body{font-family:'Noto Sans TC',-apple-system,sans-serif;background:var(--bg);co
 </div>
 
 <script>
-const store = decodeURIComponent(new URLSearchParams(window.location.search).get('store') || '門市');
+/* ── 填入 Apps Script 部署網址 ── */
+const REPORT_URL = '';   // ← 部署後貼上網址
+
+/* ── 門市名稱 ── */
+const store = decodeURIComponent(new URLSearchParams(window.location.search).get('store') || '未知門市');
 document.getElementById('mast-store').textContent = store;
 document.getElementById('hero-store').textContent = store;
+document.getElementById('rf-store-val').textContent = store;
+
+/* ── radio 視覺回饋 ── */
+document.querySelectorAll('.rf-opt input[type=radio]').forEach(r => {
+  r.addEventListener('change', () => {
+    document.querySelectorAll('.rf-opt').forEach(o => o.classList.remove('checked'));
+    r.closest('.rf-opt').classList.add('checked');
+  });
+});
+
+/* ── 送出回報 ── */
+function submitReport() {
+  const tool = document.getElementById('rf-tool').value;
+  const cat  = document.querySelector('input[name="rf-cat"]:checked')?.value;
+  const note = document.getElementById('rf-note').value.trim();
+
+  if (!tool) { alert('請選擇使用工具'); return; }
+  if (!cat)  { alert('請選擇問題類別'); return; }
+
+  const btn = document.getElementById('rf-btn');
+  btn.textContent = '送出中…';
+  btn.disabled = true;
+
+  if (!REPORT_URL) {
+    /* 尚未設定 Apps Script 網址時，顯示預覽 */
+    setTimeout(() => showSuccess(), 600);
+    return;
+  }
+
+  const params = new URLSearchParams({
+    store, tool, category: cat, note,
+    ts: new Date().toLocaleString('zh-TW', {hour12: false})
+  });
+
+  fetch(`${REPORT_URL}?${params}`, { mode: 'no-cors' })
+    .then(() => showSuccess())
+    .catch(() => {
+      btn.textContent = '送出失敗，請重試';
+      btn.disabled = false;
+    });
+}
+
+function showSuccess() {
+  document.getElementById('rf-btn').style.display = 'none';
+  document.getElementById('rf-success').style.display = 'flex';
+  /* 30 秒後重設，方便再次回報 */
+  setTimeout(() => {
+    document.getElementById('rf-btn').style.display = '';
+    document.getElementById('rf-btn').textContent = '送出回報';
+    document.getElementById('rf-btn').disabled = false;
+    document.getElementById('rf-success').style.display = 'none';
+    document.getElementById('rf-tool').value = '';
+    document.querySelectorAll('.rf-opt').forEach(o => o.classList.remove('checked'));
+    document.querySelectorAll('input[name="rf-cat"]').forEach(r => r.checked = false);
+    document.getElementById('rf-note').value = '';
+  }, 30000);
+}
 </script>
 
 </body>
