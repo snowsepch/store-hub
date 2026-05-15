@@ -1,0 +1,499 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1.0">
+<title>右昌 Apple Shop — 門市工具內頁</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=DM+Serif+Display:ital@0;1&family=Bebas+Neue&family=Noto+Sans+TC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bg:#f5f6ff;
+  --white:#ffffff;
+  --deep:#1e1b4b;
+  --deep2:#312e81;
+  --ink:#111827;
+  --ink2:#64748b;
+  --accent:#4338ca;
+  --accent2:#6366f1;
+  --light:#eef2ff;
+  --border:#c7d2fe;
+  --line:#e0e7ff;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+body{font-family:'Noto Sans TC',-apple-system,sans-serif;background:var(--bg);color:var(--ink);min-height:100vh;}
+
+/* ─── Masthead ─── */
+.masthead{
+  background:var(--deep);
+  border-bottom:3px solid var(--accent);
+  display:flex;align-items:center;justify-content:space-between;
+  padding:0 52px;height:54px;
+}
+.m-brand{display:flex;align-items:center;gap:16px;}
+.m-logo{font-size:18px;color:#fff;opacity:.75;}
+.m-name{font-size:14px;font-weight:800;color:#fff;letter-spacing:.04em;}
+.m-sep{width:1px;height:16px;background:rgba(255,255,255,.18);}
+.m-sub{font-size:10px;color:rgba(255,255,255,.35);letter-spacing:.12em;text-transform:uppercase;}
+.m-right{display:flex;align-items:center;gap:16px;}
+.m-tag{font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--accent2);border:1px solid rgba(99,102,241,.5);padding:4px 12px;}
+.m-date{font-size:10px;color:rgba(255,255,255,.35);letter-spacing:.1em;}
+
+/* ─── Hero ─── */
+.hero{
+  background:var(--white);
+  border-bottom:1px solid var(--line);
+  padding:56px 52px 48px;
+  display:grid;
+  grid-template-columns:1fr auto;
+  gap:0 56px;
+  align-items:end;
+}
+.hero-kicker{
+  display:inline-flex;align-items:center;gap:12px;
+  font-family:'Bebas Neue',sans-serif;font-size:13px;letter-spacing:.3em;
+  color:var(--accent);margin-bottom:20px;
+}
+.hero-kicker::after{content:'';display:block;width:60px;height:1px;background:var(--accent);}
+.hero-title{
+  font-family:'DM Serif Display',Georgia,serif;
+  font-size:96px;line-height:.88;
+  color:var(--deep);letter-spacing:-.03em;
+}
+.hero-title em{font-style:italic;color:var(--accent);}
+.hero-sub{
+  margin-top:26px;font-size:13px;color:var(--ink2);
+  letter-spacing:.08em;line-height:2;
+  border-left:3px solid var(--border);padding-left:18px;
+}
+.hero-sub strong{color:var(--accent);font-weight:700;}
+.hero-stamp{
+  display:flex;flex-direction:column;align-items:center;justify-content:center;
+  padding:24px 28px;
+  border:1.5px solid var(--border);
+  background:var(--light);
+  gap:4px;
+  position:relative;
+}
+.hero-stamp::before{
+  content:'';position:absolute;inset:6px;
+  border:1px dashed rgba(67,56,202,.18);
+  pointer-events:none;
+}
+.hs-num{font-family:'Bebas Neue',sans-serif;font-size:72px;line-height:1;color:var(--deep);}
+.hs-unit{font-size:10px;font-weight:700;letter-spacing:.2em;text-transform:uppercase;color:var(--ink2);}
+.hs-date{font-size:9px;letter-spacing:.12em;color:var(--accent);margin-top:6px;}
+
+/* ─── Shell ─── */
+.shell{max-width:1100px;margin:0 auto;padding:0 52px 72px;}
+
+/* ─── Section header ─── */
+.sec{display:flex;align-items:center;gap:0;margin:52px 0 0;border-top:3px solid var(--deep);padding-top:14px;}
+.sec-label{
+  font-family:'Bebas Neue',sans-serif;font-size:12px;letter-spacing:.28em;
+  color:#fff;background:var(--deep);padding:6px 18px;margin-right:14px;white-space:nowrap;
+}
+.sec-title{font-size:17px;font-weight:900;letter-spacing:-.01em;color:var(--deep);}
+.sec-line{flex:1;height:1px;background:var(--line);margin:0 16px;}
+.sec-count{font-family:'Bebas Neue',sans-serif;font-size:12px;letter-spacing:.12em;color:var(--ink2);}
+
+/* ─── Tools Bento ─── */
+.bento{
+  margin-top:18px;display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:1px;background:var(--deep);border:1px solid var(--deep);
+  animation:fadeUp .45s .05s ease both;
+}
+.t-poster  {grid-column:1/3;grid-row:1;}
+.t-social  {grid-column:3;grid-row:1;}
+.t-arrival {grid-column:1;grid-row:2;}
+.t-invent  {grid-column:2;grid-row:2;}
+.t-access  {grid-column:3;grid-row:2;}
+.t-analysis{grid-column:1;grid-row:3;}
+.t-tracker {grid-column:2/4;grid-row:3;}
+
+.tc{
+  background:var(--white);
+  padding:28px 30px 24px;
+  display:flex;flex-direction:column;
+  transition:background .12s;
+  position:relative;
+}
+.tc:hover{background:var(--light);}
+
+/* Featured poster card */
+.tc-feat{background:var(--deep);}
+.tc-feat:hover{background:var(--deep2);}
+
+.tc-head{display:flex;align-items:flex-start;justify-content:space-between;gap:10px;margin-bottom:0;}
+.tc-left{}
+.tc-cat{
+  font-size:9px;font-weight:700;letter-spacing:.22em;text-transform:uppercase;
+  color:var(--accent2);margin-bottom:7px;
+}
+.tc-feat .tc-cat{color:rgba(99,102,241,.7);}
+.tc-name{font-size:21px;font-weight:900;line-height:1.15;color:var(--deep);}
+.tc-name-lg{font-size:28px;}
+.tc-feat .tc-name{color:#fff;}
+.tc-num{
+  font-family:'Bebas Neue',sans-serif;font-size:52px;line-height:1;
+  color:var(--line);flex-shrink:0;margin-top:-4px;
+}
+.tc-num-lg{font-size:68px;}
+.tc-feat .tc-num{color:rgba(255,255,255,.08);}
+
+.tc-tags{display:flex;flex-wrap:wrap;gap:6px;margin:14px 0 0;}
+.tc-tag{
+  font-size:9.5px;font-weight:700;letter-spacing:.06em;
+  padding:3px 9px;border:1px solid var(--border);
+  color:var(--accent);background:var(--light);
+}
+.tc-tag-inv{
+  border-color:rgba(255,255,255,.2);
+  color:rgba(255,255,255,.7);background:rgba(255,255,255,.07);
+}
+
+.tc-desc{
+  font-size:12.5px;color:var(--ink2);line-height:1.8;
+  margin-top:14px;padding-top:14px;border-top:1px solid var(--line);
+}
+.tc-feat .tc-desc{color:rgba(255,255,255,.5);border-top-color:rgba(255,255,255,.1);}
+
+.tc-foot{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin-top:18px;}
+.btn{
+  display:inline-flex;align-items:center;gap:8px;
+  font-size:12px;font-weight:700;letter-spacing:.06em;
+  padding:9px 22px;text-decoration:none;
+  background:var(--deep);color:#fff;
+  transition:background .12s;
+}
+.btn svg{width:10px;height:10px;stroke:currentColor;fill:none;stroke-width:2.5;stroke-linecap:round;stroke-linejoin:round;transition:transform .12s;}
+.btn:hover{background:var(--accent);}
+.btn:hover svg{transform:translateX(3px);}
+.btn-pri{background:var(--accent);}
+.btn-pri:hover{background:var(--accent2);}
+.tc-ver{
+  margin-left:auto;font-size:9px;color:var(--ink2);
+  letter-spacing:.08em;border:1px solid var(--line);padding:3px 11px;
+}
+.tc-feat .tc-ver{color:rgba(255,255,255,.35);border-color:rgba(255,255,255,.18);}
+
+/* ─── Memo / SOP ─── */
+.memo{
+  margin-top:18px;display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:16px;
+  animation:fadeUp .45s .15s ease both;
+}
+.mc{
+  background:var(--white);
+  border:1px solid var(--border);
+  border-top:3px solid var(--accent);
+  padding:26px 26px 22px;
+}
+.mc-idx{
+  font-family:'Bebas Neue',sans-serif;font-size:36px;
+  line-height:1;color:var(--border);margin-bottom:10px;
+}
+.mc-title{font-size:15px;font-weight:900;color:var(--deep);margin-bottom:18px;}
+.mc-steps{display:flex;flex-direction:column;}
+.mc-step{
+  display:flex;gap:12px;
+  font-size:12.5px;color:var(--ink);line-height:1.65;
+  padding:9px 0;border-bottom:1px solid var(--line);
+}
+.mc-step:last-child{border-bottom:none;}
+.mc-n{
+  flex-shrink:0;
+  font-family:'Bebas Neue',sans-serif;font-size:13px;
+  color:var(--accent);width:24px;padding-top:1px;
+}
+
+/* ─── Footer ─── */
+.footer{
+  background:var(--deep);border-top:3px solid var(--accent);
+  display:flex;justify-content:space-between;align-items:center;
+  padding:14px 52px;
+}
+.footer-l{font-size:11.5px;color:rgba(255,255,255,.35);letter-spacing:.04em;}
+.footer-r{font-size:10px;color:rgba(255,255,255,.22);letter-spacing:.08em;}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+.hero{animation:fadeUp .4s ease both;}
+.sec{animation:fadeUp .4s .05s ease both;}
+
+/* ─── RWD Mobile ─── */
+@media(max-width:780px){
+  .masthead{padding:0 18px;height:48px;}
+  .m-sub,.m-sep{display:none;}
+  .m-tag{display:none;}
+  .hero{padding:32px 20px 28px;grid-template-columns:1fr;gap:24px;}
+  .hero-title{font-size:60px;}
+  .hero-stamp{flex-direction:row;padding:14px 20px;gap:12px;}
+  .hs-num{font-size:48px;}
+  .shell{padding:0 18px 48px;}
+  .bento{grid-template-columns:1fr;}
+  .t-poster,.t-social,.t-arrival,.t-invent,.t-access,.t-analysis,.t-tracker{
+    grid-column:1;grid-row:auto;
+  }
+  .tc-name-lg{font-size:22px;}
+  .memo{grid-template-columns:1fr;}
+  .footer{padding:14px 18px;flex-direction:column;gap:6px;text-align:center;}
+}
+@media(max-width:1024px) and (min-width:781px){
+  .masthead{padding:0 28px;}
+  .hero{padding:44px 28px 38px;}
+  .hero-title{font-size:72px;}
+  .shell{padding:0 28px 60px;}
+  .tc{padding:22px 22px 18px;}
+  .tc-name-lg{font-size:24px;}
+  .footer{padding:14px 28px;}
+}
+</style>
+</head>
+<body>
+
+<!-- Masthead -->
+<div class="masthead">
+  <div class="m-brand">
+    <div class="m-logo">&#63743;</div>
+    <div class="m-name">右昌 Apple Shop</div>
+    <div class="m-sep"></div>
+    <div class="m-sub">Apple Authorized Reseller · 高雄楠梓德民路</div>
+  </div>
+  <div class="m-right">
+    <div class="m-tag">Internal</div>
+    <div class="m-date">2026 · 05 · 15</div>
+  </div>
+</div>
+
+<!-- Hero -->
+<div class="hero">
+  <div class="hero-left">
+    <div class="hero-kicker">STORE HUB · NO.09 · 門市工具入口</div>
+    <div class="hero-title">門市<br><em>核心</em><br>工具</div>
+    <div class="hero-sub">
+      七大數位工具 · 作業備忘 · 即時入口<br>
+      <strong>右昌門市內部使用</strong>・請勿對外分享
+    </div>
+  </div>
+  <div class="hero-stamp">
+    <div class="hs-num">7</div>
+    <div class="hs-unit">Tools</div>
+    <div class="hs-date">2026.05.15</div>
+  </div>
+</div>
+
+<div class="shell">
+
+  <!-- Section: Tools -->
+  <div class="sec">
+    <div class="sec-label">TOOLS</div>
+    <div class="sec-title">工具快捷入口</div>
+    <div class="sec-line"></div>
+    <div class="sec-count">7 ITEMS</div>
+  </div>
+
+  <div class="bento">
+
+    <!-- 01 會員海報（Featured） -->
+    <div class="tc tc-feat t-poster">
+      <div class="tc-head">
+        <div class="tc-left">
+          <div class="tc-cat">換檔期工具</div>
+          <div class="tc-name tc-name-lg">會員優惠<br>海報系統</div>
+        </div>
+        <div class="tc-num tc-num-lg">01</div>
+      </div>
+      <div class="tc-tags">
+        <span class="tc-tag tc-tag-inv">PDF 自動解析</span>
+        <span class="tc-tag tc-tag-inv">5 頁 A4 海報</span>
+        <span class="tc-tag tc-tag-inv">點字即時修改</span>
+        <span class="tc-tag tc-tag-inv">一鍵列印</span>
+      </div>
+      <div class="tc-desc">上傳操盤 PDF → 自動抓取價格與折扣 → 產出 5 頁彩色海報 → 即時編輯 → 一鍵列印。涵蓋 iPhone · iPad · Mac · Watch · AirPods 全品類。</div>
+      <div class="tc-foot">
+        <a class="btn btn-pri" href="https://snowsepch.github.io/member-poster/" target="_blank">
+          開啟工具
+          <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+        <span class="tc-ver">MASTER 15_23</span>
+      </div>
+    </div>
+
+    <!-- 02 社群儀表板 -->
+    <div class="tc t-social">
+      <div class="tc-head">
+        <div class="tc-left">
+          <div class="tc-cat">社群經營</div>
+          <div class="tc-name">門市社群<br>數據儀表板</div>
+        </div>
+        <div class="tc-num">02</div>
+      </div>
+      <div class="tc-desc">LINE@ 好友成長 × Google 商家表現。截圖上傳即自動更新，長期追蹤封鎖率與商家優異度。</div>
+      <div class="tc-foot">
+        <a class="btn" href="https://snowsepch.github.io/store-social-dashboard/" target="_blank">
+          開啟工具
+          <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- 03 到貨提醒 -->
+    <div class="tc t-arrival">
+      <div class="tc-head">
+        <div class="tc-left">
+          <div class="tc-cat">庫存管理</div>
+          <div class="tc-name">到貨提醒<br>儀表板</div>
+        </div>
+        <div class="tc-num">03</div>
+      </div>
+      <div class="tc-desc">上傳 Excel → 緊急 / 一般 / 已通知 三色徽章，快速搜尋待通知訂單。Apple 正廠 ＋ 副廠分頁顯示。</div>
+      <div class="tc-foot">
+        <a class="btn" href="https://snowsepch.github.io/arrival-dashboard/" target="_blank">
+          開啟工具
+          <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- 04 配件庫存管理 -->
+    <div class="tc t-invent">
+      <div class="tc-head">
+        <div class="tc-left">
+          <div class="tc-cat">補貨排程</div>
+          <div class="tc-name">配件庫存<br>管理系統</div>
+        </div>
+        <div class="tc-num">04</div>
+      </div>
+      <div class="tc-desc">上傳 Excel → 庫存水位分析 → 匯出 .ics 補貨行事曆 ＋ Excel 報表。🔴&lt;14天 · 🟠14–30天 · 🟢&gt;60天。</div>
+      <div class="tc-foot">
+        <a class="btn" href="https://snowsepch.github.io/inventory-system/" target="_blank">
+          開啟工具
+          <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- 05 配件陳列建議 -->
+    <div class="tc t-access">
+      <div class="tc-head">
+        <div class="tc-left">
+          <div class="tc-cat">配件管理</div>
+          <div class="tc-name">配件陳列<br>建議</div>
+        </div>
+        <div class="tc-num">05</div>
+      </div>
+      <div class="tc-desc">副廠配件銷售 TOP 15 × 花車陳列位置建議。每季更新，黃金層優先擺放高銷量品項。</div>
+      <div class="tc-foot">
+        <a class="btn" href="https://snowsepch.github.io/accessory-display/" target="_blank">
+          開啟工具
+          <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </div>
+    </div>
+
+    <!-- 06 陳列分析系統 -->
+    <div class="tc t-analysis">
+      <div class="tc-head">
+        <div class="tc-left">
+          <div class="tc-cat">POS 分析</div>
+          <div class="tc-name">配件陳列<br>分析系統</div>
+        </div>
+        <div class="tc-num">06</div>
+      </div>
+      <div class="tc-desc">上傳 POS Excel → 自動排名 TOP 15 → 貨架示意圖 ＋ 多期比較 ＋ 導購話術框架。</div>
+      <div class="tc-foot">
+        <a class="btn" href="https://snowsepch.github.io/accessory-analysis/" target="_blank">
+          開啟工具
+          <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+        <span class="tc-ver">Excel 上傳版</span>
+      </div>
+    </div>
+
+    <!-- 07 成效追蹤（wide） -->
+    <div class="tc t-tracker">
+      <div class="tc-head">
+        <div class="tc-left">
+          <div class="tc-cat">成效追蹤</div>
+          <div class="tc-name tc-name-lg">配件專案成效追蹤</div>
+        </div>
+        <div class="tc-num tc-num-lg">07</div>
+      </div>
+      <div class="tc-tags">
+        <span class="tc-tag">進度看板</span>
+        <span class="tc-tag">目標達成率</span>
+        <span class="tc-tag">里程碑追蹤</span>
+        <span class="tc-tag">跨專案對比</span>
+      </div>
+      <div class="tc-desc">各配件專案執行狀態一頁掌握，視覺化達成率呈現，快速定位需跟進項目。</div>
+      <div class="tc-foot">
+        <a class="btn" href="https://snowsepch.github.io/project-tracker/" target="_blank">
+          開啟工具
+          <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </div>
+    </div>
+
+  </div><!-- /bento -->
+
+  <!-- Section: Memo/SOP -->
+  <div class="sec">
+    <div class="sec-label">MEMO</div>
+    <div class="sec-title">作業備忘</div>
+    <div class="sec-line"></div>
+    <div class="sec-count">3 NOTES</div>
+  </div>
+
+  <div class="memo">
+
+    <!-- 01 換檔期 SOP -->
+    <div class="mc">
+      <div class="mc-idx">01</div>
+      <div class="mc-title">換檔期 SOP</div>
+      <div class="mc-steps">
+        <div class="mc-step"><div class="mc-n">1</div><div>下載最新操盤 PDF（每月月初）</div></div>
+        <div class="mc-step"><div class="mc-n">2</div><div>開啟「會員海報系統」，上傳 PDF</div></div>
+        <div class="mc-step"><div class="mc-n">3</div><div>確認贈品文字是否需更新（GIFT_KEYWORDS）</div></div>
+        <div class="mc-step"><div class="mc-n">4</div><div>視需要調整底色 / 頁首色</div></div>
+        <div class="mc-step"><div class="mc-n">5</div><div>列印 5 頁，張貼各品類展示區</div></div>
+        <div class="mc-step"><div class="mc-n">6</div><div>LINE@ 發送本月活動推播</div></div>
+      </div>
+    </div>
+
+    <!-- 02 週常作業 -->
+    <div class="mc">
+      <div class="mc-idx">02</div>
+      <div class="mc-title">週常作業</div>
+      <div class="mc-steps">
+        <div class="mc-step"><div class="mc-n">週一</div><div>更新社群儀表板截圖（LINE@ ＋ Google）</div></div>
+        <div class="mc-step"><div class="mc-n">週二</div><div>確認待通知到貨訂單，更新到貨提醒狀態</div></div>
+        <div class="mc-step"><div class="mc-n">週五</div><div>Google 商家相片更新（至少 1 張）</div></div>
+        <div class="mc-step"><div class="mc-n">目標</div><div>封鎖率 &lt;25%・優異度 &gt;80%・週增好友 &gt;25</div></div>
+      </div>
+    </div>
+
+    <!-- 03 庫存 & 陳列 -->
+    <div class="mc">
+      <div class="mc-idx">03</div>
+      <div class="mc-title">庫存 · 陳列提醒</div>
+      <div class="mc-steps">
+        <div class="mc-step"><div class="mc-n">月25</div><div>每月 25 日前確認庫存水位，🔴紅色品項優先補貨</div></div>
+        <div class="mc-step"><div class="mc-n">每季</div><div>更新配件陳列建議（上傳最新 3 個月 POS 數據）</div></div>
+        <div class="mc-step"><div class="mc-n">花車</div><div>TOP 3 品項置黃金層（眼睛高度），依銷量由上往下排</div></div>
+        <div class="mc-step"><div class="mc-n">補貨</div><div>🟠14–30天提前訂貨，🔴&lt;14天立即補</div></div>
+      </div>
+    </div>
+
+  </div><!-- /memo -->
+
+</div><!-- /shell -->
+
+<div class="footer">
+  <div class="footer-l">高雄市楠梓區德民路 836 號 2F &nbsp;·&nbsp; 07-364-3207 &nbsp;·&nbsp; 內部文件，請勿對外分享</div>
+  <div class="footer-r">Built with Claude · 2026</div>
+</div>
+
+</body>
+</html>
