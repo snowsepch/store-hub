@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Apple Shop 數位工具導覽</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<style>
+/* ── Token 系統（oklch，三主題）── */
+:root, [data-theme="a"] {
+  --bg: oklch(98% 0.003 86); --bg-card: oklch(95% 0.006 86); --bg-card2: oklch(92% 0.010 86);
+  --text-1: oklch(12% 0.012 265); --text-2: oklch(40% 0.012 265); --text-3: oklch(62% 0.010 265);
+  --accent: oklch(52% 0.22 258); --accent-dim: oklch(93% 0.06 258); --accent-fg: oklch(99% 0.002 258);
+  --border: oklch(88% 0.009 86);
+  --tag-bg: oklch(93% 0.06 258); --tag-fg: oklch(38% 0.16 258);
+}
+[data-theme="b"] {
+  --bg: oklch(13% 0.012 265); --bg-card: oklch(18% 0.014 265); --bg-card2: oklch(22% 0.014 265);
+  --text-1: oklch(96% 0.004 70); --text-2: oklch(75% 0.008 70); --text-3: oklch(55% 0.008 70);
+  --accent: oklch(78% 0.17 82); --accent-dim: oklch(22% 0.06 82); --accent-fg: oklch(12% 0.012 265);
+  --border: oklch(28% 0.014 265);
+  --tag-bg: oklch(24% 0.07 82); --tag-fg: oklch(82% 0.16 82);
+}
+[data-theme="c"] {
+  --bg: oklch(97% 0.010 78); --bg-card: oklch(93% 0.015 78); --bg-card2: oklch(89% 0.018 70);
+  --text-1: oklch(14% 0.020 28); --text-2: oklch(36% 0.018 28); --text-3: oklch(58% 0.014 28);
+  --accent: oklch(38% 0.20 28); --accent-dim: oklch(92% 0.06 28); --accent-fg: oklch(99% 0.002 28);
+  --border: oklch(84% 0.018 70);
+  --tag-bg: oklch(91% 0.06 28); --tag-fg: oklch(36% 0.18 28);
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+body {
+  font-family: 'Noto Sans TC', sans-serif;
+  background: var(--bg);
+  color: var(--text-1);
+  line-height: 1.6;
+  padding-bottom: 100px;
+}
+
+/* ── Header ── */
+.header {
+  background: var(--bg-card2);
+  border-bottom: 2px solid var(--border);
+  padding: 48px 40px 40px;
+  max-width: 900px;
+  margin: 0 auto;
+}
+.eyebrow {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 12px;
+}
+.header h1 {
+  font-size: 40px;
+  font-weight: 900;
+  color: var(--text-1);
+  line-height: 1.1;
+  margin-bottom: 12px;
+}
+.header-sub {
+  font-size: 15px;
+  color: var(--text-2);
+  font-weight: 400;
+}
+
+/* ── Accent line ── */
+.accent-line {
+  width: 56px;
+  height: 4px;
+  background: var(--accent);
+  margin: 0 auto 40px;
+}
+
+/* ── Container ── */
+.container {
+  max-width: 900px;
+  margin: 0 auto;
+  padding: 0 40px;
+}
+
+/* ── Tool Card ── */
+.tool-card {
+  background: var(--bg-card);
+  border: 1.5px solid var(--border);
+  border-radius: 12px;
+  margin-top: 28px;
+  overflow: hidden;
+}
+.tool-header {
+  display: grid;
+  grid-template-columns: 72px 1fr auto;
+  align-items: center;
+  gap: 20px;
+  padding: 28px 32px;
+  border-bottom: 1.5px solid var(--border);
+}
+.tool-number {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+  background: var(--tag-bg);
+  color: var(--tag-fg);
+  padding: 4px 10px;
+  border-radius: 4px;
+  text-align: center;
+  white-space: nowrap;
+}
+.tool-title-wrap {}
+.tool-icon { font-size: 22px; margin-bottom: 4px; }
+.tool-name {
+  font-size: 22px;
+  font-weight: 900;
+  color: var(--text-1);
+  line-height: 1.2;
+}
+.tool-desc {
+  font-size: 13px;
+  color: var(--text-2);
+  margin-top: 4px;
+  font-weight: 400;
+}
+.tool-link-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: var(--accent);
+  color: var(--accent-fg);
+  font-family: 'Noto Sans TC', sans-serif;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 10px 20px;
+  border-radius: 8px;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: opacity 0.15s;
+}
+.tool-link-btn:hover { opacity: 0.85; }
+
+/* ── Steps ── */
+.tool-body {
+  padding: 28px 32px;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+@media (max-width: 640px) {
+  .tool-body { grid-template-columns: 1fr; }
+  .tool-header { grid-template-columns: 1fr; }
+  .tool-link-btn { width: 100%; justify-content: center; }
+  .container { padding: 0 20px; }
+  .header { padding: 32px 20px; }
+  .header h1 { font-size: 28px; }
+}
+.steps-label {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  color: var(--accent);
+  margin-bottom: 14px;
+}
+.step-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+.step-item {
+  display: flex;
+  gap: 12px;
+  align-items: flex-start;
+}
+.step-num {
+  width: 22px;
+  height: 22px;
+  min-width: 22px;
+  border-radius: 50%;
+  background: var(--accent);
+  color: var(--accent-fg);
+  font-size: 11px;
+  font-weight: 700;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 1px;
+}
+.step-text {
+  font-size: 13px;
+  color: var(--text-2);
+  line-height: 1.5;
+}
+.step-text strong { color: var(--text-1); font-weight: 700; }
+
+/* ── Info column ── */
+.info-col {}
+.info-box {
+  background: var(--bg-card2);
+  border: 1px solid var(--border);
+  border-radius: 8px;
+  padding: 16px 18px;
+  margin-bottom: 12px;
+}
+.info-box:last-child { margin-bottom: 0; }
+.info-box-label {
+  font-size: 11px;
+  font-weight: 500;
+  letter-spacing: 0.12em;
+  color: var(--accent);
+  margin-bottom: 6px;
+  text-transform: uppercase;
+}
+.info-box-body {
+  font-size: 13px;
+  color: var(--text-2);
+  line-height: 1.6;
+}
+.info-box-body strong { color: var(--text-1); font-weight: 700; }
+.badge-row { display: flex; gap: 6px; flex-wrap: wrap; margin-top: 6px; }
+.badge {
+  font-size: 11px;
+  font-weight: 700;
+  padding: 3px 9px;
+  border-radius: 20px;
+  border: 1.5px solid var(--border);
+  color: var(--text-2);
+}
+.badge.red { border-color: #e55; color: #c33; }
+.badge.orange { border-color: #e90; color: #a60; }
+.badge.yellow { border-color: #cc0; color: #880; }
+.badge.green { border-color: #3a3; color: #181; }
+
+/* ── Floating nav ── */
+.float-nav {
+  position: fixed;
+  bottom: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--bg-card2);
+  border: 1.5px solid var(--border);
+  border-radius: 40px;
+  padding: 8px 16px;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  z-index: 100;
+}
+.float-nav span {
+  font-size: 11px;
+  color: var(--text-3);
+  margin-right: 4px;
+  font-weight: 500;
+}
+.theme-btn {
+  width: 28px; height: 28px;
+  border-radius: 50%;
+  border: 2px solid transparent;
+  cursor: pointer;
+  font-size: 11px;
+  font-weight: 700;
+  display: flex; align-items: center; justify-content: center;
+  transition: border-color 0.15s;
+  font-family: 'Noto Sans TC', sans-serif;
+}
+.theme-btn[data-t="a"] { background: oklch(95% 0.006 86); color: oklch(12% 0.012 265); }
+.theme-btn[data-t="b"] { background: oklch(18% 0.014 265); color: oklch(96% 0.004 70); }
+.theme-btn[data-t="c"] { background: oklch(93% 0.015 78); color: oklch(14% 0.020 28); }
+.theme-btn.active { border-color: var(--accent); }
+
+/* ── Divider ── */
+.section-spacer { height: 12px; }
+.store-hub-link {
+  display: block;
+  text-align: center;
+  margin: 32px auto 0;
+  font-size: 13px;
+  color: var(--accent);
+  text-decoration: none;
+  font-weight: 500;
+}
+.store-hub-link:hover { text-decoration: underline; }
+</style>
+</head>
+<body data-theme="a">
+
+<div class="header">
+  <div class="eyebrow">Apple Shop · 右昌 · 數位工具</div>
+  <h1>五大工具<br>操作導覽</h1>
+  <div class="header-sub">各工具連結與逐步操作說明，供門市同仁參考使用</div>
+</div>
+
+<div class="container">
+
+  <!-- ═══ TOOL 1 ═══ -->
+  <div class="tool-card">
+    <div class="tool-header">
+      <div class="tool-number">Tool 01</div>
+      <div class="tool-title-wrap">
+        <div class="tool-icon">🪧</div>
+        <div class="tool-name">會員優惠海報系統</div>
+        <div class="tool-desc">上傳操盤 PDF，自動生成 A4 列印海報</div>
+      </div>
+      <a class="tool-link-btn" href="https://snowsepch.github.io/member-poster/" target="_blank">開啟工具 →</a>
+    </div>
+    <div class="tool-body">
+      <div>
+        <div class="steps-label">操作步驟</div>
+        <ol class="step-list">
+          <li class="step-item"><span class="step-num">1</span><span class="step-text">點「<strong>開啟工具</strong>」，頁面會自動帶入門市名稱</span></li>
+          <li class="step-item"><span class="step-num">2</span><span class="step-text">點上方「<strong>選擇操盤 PDF</strong>」，上傳當期活動操盤檔</span></li>
+          <li class="step-item"><span class="step-num">3</span><span class="step-text">系統自動解析活動內容，生成 <strong>iPhone／Mac／iPad／Watch</strong> 四版海報預覽</span></li>
+          <li class="step-item"><span class="step-num">4</span><span class="step-text">點上方主題按鈕可切換 <strong>4 種海報風格</strong></span></li>
+          <li class="step-item"><span class="step-num">5</span><span class="step-text">任何文字可<strong>直接點擊編輯</strong>，調整為門市實際活動內容</span></li>
+          <li class="step-item"><span class="step-num">6</span><span class="step-text">點右上「<strong>列印</strong>」，用 Safari 選「另存 PDF」或直接紙本印出（A4）</span></li>
+        </ol>
+      </div>
+      <div class="info-col">
+        <div class="info-box">
+          <div class="info-box-label">適用時機</div>
+          <div class="info-box-body">每個活動期換期時，快速製作 4 版全品項海報，貼於門市看板</div>
+        </div>
+        <div class="info-box">
+          <div class="info-box-label">日期自動偵測</div>
+          <div class="info-box-body">上傳的 PDF 檔名若含日期格式（如 <strong>0519-0531操盤.pdf</strong>），活動期間自動填入</div>
+        </div>
+        <div class="info-box">
+          <div class="info-box-label">注意事項</div>
+          <div class="info-box-body">請使用 <strong>Safari</strong> 列印，Chrome 分頁效果可能不正確</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ TOOL 2 ═══ -->
+  <div class="tool-card">
+    <div class="tool-header">
+      <div class="tool-number">Tool 02</div>
+      <div class="tool-title-wrap">
+        <div class="tool-icon">📦</div>
+        <div class="tool-name">到貨提醒儀表板</div>
+        <div class="tool-desc">管理客訂待通知清單，三色狀態追蹤</div>
+      </div>
+      <a class="tool-link-btn" href="https://snowsepch.github.io/arrival-dashboard/" target="_blank">開啟工具 →</a>
+    </div>
+    <div class="tool-body">
+      <div>
+        <div class="steps-label">操作步驟</div>
+        <ol class="step-list">
+          <li class="step-item"><span class="step-num">1</span><span class="step-text">從 POS 系統匯出<strong>客訂 Excel（.xlsx）</strong></span></li>
+          <li class="step-item"><span class="step-num">2</span><span class="step-text">拖曳或點擊上傳至工具</span></li>
+          <li class="step-item"><span class="step-num">3</span><span class="step-text">系統分 <strong>Apple 正廠</strong> / <strong>副廠配件</strong> 兩個分頁顯示所有待通知訂單</span></li>
+          <li class="step-item"><span class="step-num">4</span><span class="step-text">查看三色狀態徽章，掌握通知優先順序</span></li>
+          <li class="step-item"><span class="step-num">5</span><span class="step-text">通知完畢後點擊徽章切換為<strong>「已通知」</strong>，記錄進度</span></li>
+        </ol>
+      </div>
+      <div class="info-col">
+        <div class="info-box">
+          <div class="info-box-label">三色狀態說明</div>
+          <div class="info-box-body">
+            <div class="badge-row">
+              <span class="badge red">🔴 緊急</span>
+              <span class="badge yellow">🟡 一般</span>
+              <span class="badge green">✅ 已通知</span>
+            </div>
+          </div>
+        </div>
+        <div class="info-box">
+          <div class="info-box-label">適用時機</div>
+          <div class="info-box-body">每日開門前或到貨後，快速確認哪些訂單尚未聯繫客人</div>
+        </div>
+        <div class="info-box">
+          <div class="info-box-label">注意事項</div>
+          <div class="info-box-body">資料<strong>不會自動儲存</strong>，每次刷新需重新上傳 Excel</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ TOOL 3 ═══ -->
+  <div class="tool-card">
+    <div class="tool-header">
+      <div class="tool-number">Tool 03</div>
+      <div class="tool-title-wrap">
+        <div class="tool-icon">📊</div>
+        <div class="tool-name">配件庫存管理系統</div>
+        <div class="tool-desc">庫存水位分析 + 補貨建議 + 補貨發信</div>
+      </div>
+      <a class="tool-link-btn" href="https://snowsepch.github.io/inventory-system/" target="_blank">開啟工具 →</a>
+    </div>
+    <div class="tool-body">
+      <div>
+        <div class="steps-label">操作步驟</div>
+        <ol class="step-list">
+          <li class="step-item"><span class="step-num">1</span><span class="step-text">從 POS 匯出 <strong>副廠庫存.xls</strong> 與 <strong>銷售 sa.xls</strong>（同時段）</span></li>
+          <li class="step-item"><span class="step-num">2</span><span class="step-text">兩份檔案拖入工具上傳區（可同時上傳）</span></li>
+          <li class="step-item"><span class="step-num">3</span><span class="step-text">系統根據銷售速度計算<strong>預計耗盡天數</strong>，分四色水位顯示</span></li>
+          <li class="step-item"><span class="step-num">4</span><span class="step-text">勾選需要補貨的品項</span></li>
+          <li class="step-item"><span class="step-num">5</span><span class="step-text">點「<strong>補貨發信</strong>」生成補貨表格，可複製後寄 Email 或匯出 .ics 行事曆提醒</span></li>
+        </ol>
+      </div>
+      <div class="info-col">
+        <div class="info-box">
+          <div class="info-box-label">四色水位說明</div>
+          <div class="info-box-body">
+            <div class="badge-row">
+              <span class="badge red">🔴 緊急 &lt;14天</span>
+              <span class="badge orange">🟠 建議 14–30天</span>
+            </div>
+            <div class="badge-row" style="margin-top:6px">
+              <span class="badge yellow">🟡 注意 30–60天</span>
+              <span class="badge green">🟢 充足 &gt;60天</span>
+            </div>
+          </div>
+        </div>
+        <div class="info-box">
+          <div class="info-box-label">適用時機</div>
+          <div class="info-box-body">每月定期檢視，或促銷前確認庫存是否充足</div>
+        </div>
+        <div class="info-box">
+          <div class="info-box-label">自動排除</div>
+          <div class="info-box-body">品名含「燦坤」「保護貼貼服務」「貼服務」的品項自動不顯示</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ TOOL 4 ═══ -->
+  <div class="tool-card">
+    <div class="tool-header">
+      <div class="tool-number">Tool 04</div>
+      <div class="tool-title-wrap">
+        <div class="tool-icon">🛒</div>
+        <div class="tool-name">配件陳列建議</div>
+        <div class="tool-desc">銷售 TOP 15 × 花車陳列對照 × 改善建議</div>
+      </div>
+      <a class="tool-link-btn" href="https://snowsepch.github.io/accessory-display/" target="_blank">開啟工具 →</a>
+    </div>
+    <div class="tool-body">
+      <div>
+        <div class="steps-label">操作步驟</div>
+        <ol class="step-list">
+          <li class="step-item"><span class="step-num">1</span><span class="step-text">開啟工具，輸入密碼登入（<strong>tk3c027</strong>）</span></li>
+          <li class="step-item"><span class="step-num">2</span><span class="step-text">切換到「<strong>更新資料</strong>」頁籤</span></li>
+          <li class="step-item"><span class="step-num">3</span><span class="step-text">拖入 POS 銷售 Excel（<strong>sa.xls</strong>），系統自動辨識欄位</span></li>
+          <li class="step-item"><span class="step-num">4</span><span class="step-text">確認欄位對應無誤後，點「<strong>確認匯入</strong>」</span></li>
+          <li class="step-item"><span class="step-num">5</span><span class="step-text">切換到「<strong>花車陳列</strong>」，更新各品項的陳列狀態（有陳列 / 未陳列 / 位置不佳）</span></li>
+          <li class="step-item"><span class="step-num">6</span><span class="step-text">回到「更新資料」點「<strong>儲存並套用</strong>」，完成更新</span></li>
+        </ol>
+      </div>
+      <div class="info-col">
+        <div class="info-box">
+          <div class="info-box-label">五個功能頁籤</div>
+          <div class="info-box-body">
+            <strong>銷售排行 TOP 15</strong>、<strong>圖表分析</strong>、<strong>花車陳列</strong>對照、<strong>建議行動</strong>、<strong>更新資料</strong>
+          </div>
+        </div>
+        <div class="info-box">
+          <div class="info-box-label">報告期間</div>
+          <div class="info-box-body">上傳 Excel 後系統<strong>自動偵測</strong>最早與最晚交易日期，填入報告期間</div>
+        </div>
+        <div class="info-box">
+          <div class="info-box-label">資料儲存位置</div>
+          <div class="info-box-body">存於<strong>瀏覽器 localStorage</strong>，不同裝置或清除瀏覽器資料後需重新匯入</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ═══ TOOL 5 ═══ -->
+  <div class="tool-card">
+    <div class="tool-header">
+      <div class="tool-number">Tool 05</div>
+      <div class="tool-title-wrap">
+        <div class="tool-icon">📈</div>
+        <div class="tool-name">配件陳列分析系統</div>
+        <div class="tool-desc">自動排名 TOP 15 + 貨架示意圖 + 導購話術</div>
+      </div>
+      <a class="tool-link-btn" href="https://snowsepch.github.io/accessory-analysis/" target="_blank">開啟工具 →</a>
+    </div>
+    <div class="tool-body">
+      <div>
+        <div class="steps-label">操作步驟</div>
+        <ol class="step-list">
+          <li class="step-item"><span class="step-num">1</span><span class="step-text">拖入 POS 銷售 Excel（<strong>sa.xls</strong>）至上傳區</span></li>
+          <li class="step-item"><span class="step-num">2</span><span class="step-text">系統自動篩選配件類別（<strong>031xxxxx</strong>），計算 TOP 15 銷售排名</span></li>
+          <li class="step-item"><span class="step-num">3</span><span class="step-text">查看「<strong>貨架示意圖</strong>」，了解建議陳列區位（A 黃金區 / B 次要區 / C 一般區 / D 底部）</span></li>
+          <li class="step-item"><span class="step-num">4</span><span class="step-text">點「<strong>多期比較</strong>」，可同時上傳多份 Excel 對照不同月份銷售變化</span></li>
+          <li class="step-item"><span class="step-num">5</span><span class="step-text">查看「<strong>導購話術</strong>」，取得各品類的開場問句與需求引導框架</span></li>
+        </ol>
+      </div>
+      <div class="info-col">
+        <div class="info-box">
+          <div class="info-box-label">與 Tool 04 的差異</div>
+          <div class="info-box-body">
+            <strong>Tool 04</strong> 記錄花車實際陳列狀態，需手動維護<br>
+            <strong>Tool 05</strong> 純分析工具，每次上傳即重新計算，不需登入
+          </div>
+        </div>
+        <div class="info-box">
+          <div class="info-box-label">品類自動辨識</div>
+          <div class="info-box-body">充電線、充電器、行動電源、轉接器、iPad 筆等品類由系統自動分類，無需手動標記</div>
+        </div>
+        <div class="info-box">
+          <div class="info-box-label">適用時機</div>
+          <div class="info-box-body">每月銷售結算後，快速取得當期排名與陳列建議</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <a class="store-hub-link" href="https://snowsepch.github.io/store-hub/" target="_blank">← 返回 Store Hub 門市入口</a>
+
+</div><!-- /container -->
+
+<!-- ── Floating Theme Toggle ── -->
+<nav class="float-nav">
+  <span>主題</span>
+  <button class="theme-btn active" data-t="a">亮</button>
+  <button class="theme-btn" data-t="b">暗</button>
+  <button class="theme-btn" data-t="c">橘</button>
+</nav>
+
+<script>
+  const THEME_KEY = 'tool-guide-theme';
+  const root = document.body;
+  const btns = document.querySelectorAll('.theme-btn');
+
+  function setTheme(t) {
+    root.dataset.theme = t;
+    btns.forEach(b => b.classList.toggle('active', b.dataset.t === t));
+    localStorage.setItem(THEME_KEY, t);
+  }
+  btns.forEach(b => b.addEventListener('click', () => setTheme(b.dataset.t)));
+  setTheme(localStorage.getItem(THEME_KEY) || 'a');
+</script>
+</body>
+</html>
