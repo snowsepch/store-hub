@@ -102,6 +102,7 @@ body{font-family:'Noto Sans TC',-apple-system,sans-serif;background:var(--bg);co
 .t-invent {grid-column:1;grid-row:2;}
 .t-access {grid-column:2;grid-row:2;}
 .t-analysis{grid-column:3;grid-row:2;}
+.t-workshop{grid-column:1/4;grid-row:3;}
 
 .tc{background:var(--white);padding:26px 28px 22px;display:flex;flex-direction:column;transition:background .12s;}
 .tc:hover{background:var(--hover);}
@@ -222,7 +223,7 @@ body{font-family:'Noto Sans TC',-apple-system,sans-serif;background:var(--bg);co
   .hero-stamp{display:none;}
   .shell{padding:0 18px 48px;}
   .bento{grid-template-columns:1fr;}
-  .t-poster,.t-arrival,.t-invent,.t-access,.t-analysis{grid-column:1;grid-row:auto;}
+  .t-poster,.t-arrival,.t-invent,.t-access,.t-analysis,.t-workshop{grid-column:1;grid-row:auto;}
   .tc-feat{border-left:none;border-top:4px solid var(--accent);}
   .tc-name-lg{font-size:20px;}
   .report-card{grid-template-columns:1fr;}
@@ -284,7 +285,7 @@ body{font-family:'Noto Sans TC',-apple-system,sans-serif;background:var(--bg);co
     <div class="sec-label">TOOLS</div>
     <div class="sec-title">工具快捷入口</div>
     <div class="sec-line"></div>
-    <div class="sec-count">5 ITEMS</div>
+    <div class="sec-count">6 ITEMS</div>
   </div>
 
   <div class="bento">
@@ -377,6 +378,28 @@ body{font-family:'Noto Sans TC',-apple-system,sans-serif;background:var(--bg);co
       </div>
     </div>
 
+    <div class="tc t-workshop">
+      <div class="tc-head">
+        <div>
+          <div class="tc-cat">顧客講座</div>
+          <div class="tc-name">小教室<br>簡報生成器</div>
+        </div>
+        <div class="tc-num">06</div>
+      </div>
+      <div class="tc-tags">
+        <span class="tc-tag">主題庫×年齡層</span>
+        <span class="tc-tag">一鍵生成簡報</span>
+        <span class="tc-tag">宣傳海報</span>
+        <span class="tc-tag">社群文案</span>
+      </div>
+      <div class="tc-desc">勾選 Apple 產品／App 主題 × 對象年齡層 → 自動生成顧客小教室簡報（可列印／下載 .pptx）。多選主題會智慧融合成一場主題式講座。另可一鍵產生宣傳海報（A4／社群方形、四色可切換）與開課社群文案。</div>
+      <div class="tc-foot">
+        <a class="btn" data-tool-link="https://snowsepch.github.io/workshop-generator/" target="_blank">
+          開啟工具<svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg>
+        </a>
+      </div>
+    </div>
+
   </div>
 
   <!-- 問題回報 -->
@@ -403,6 +426,7 @@ body{font-family:'Noto Sans TC',-apple-system,sans-serif;background:var(--bg);co
           <option value="配件庫存管理系統">配件庫存管理系統</option>
           <option value="配件陳列建議">配件陳列建議</option>
           <option value="配件陳列分析系統">配件陳列分析系統</option>
+          <option value="小教室簡報生成器">小教室簡報生成器</option>
         </select>
       </div>
 
